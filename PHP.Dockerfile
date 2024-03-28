@@ -58,7 +58,7 @@ RUN install-php-extensions \
     @composer
 
 # Install NodeJS
-ARG NODE_VERSION=20.11.1
+ARG NODE_VERSION=20.12.0
 RUN curl https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz | tar -xz -C /usr/local --strip-components 1
 
 WORKDIR /app
