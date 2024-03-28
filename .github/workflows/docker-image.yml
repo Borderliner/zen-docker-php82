@@ -15,4 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker-compose build --tag borderliner-php82:$(date +%s)
+      run: docker-compose build
