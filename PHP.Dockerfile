@@ -54,8 +54,10 @@ RUN install-php-extensions \
     memcache-8.2 \
     # Check versions here: https://pecl.php.net/package-changelog.php?package=xdebug
     xdebug-3.3.1 \
-    ioncube \
     @composer
+
+# Install ioncube separately because it causes problems sometimes so we have a checkpoint here
+RUN install-php-extensions ioncube
 
 # Install NodeJS
 ARG NODE_VERSION=20.12.0
