@@ -23,7 +23,7 @@ services:
             - "5173:5173"
         volumes:
             - ./www:/app
-            - ./etc/php.config.ini:/usr/local/etc/php/conf.d/uploads.ini
+            - ./etc/php.conf:/usr/local/etc/php/conf.d/uploads.ini
         working_dir: /app
         depends_on:
             - mariadb
@@ -58,7 +58,7 @@ services:
             - "3306:3306"
         volumes:
             - db_data:/var/lib/mysql
-            - ./etc/my.cnf:/etc/mysql/conf.d/my.cnf:ro
+            - ./etc/mysql.cnf:/etc/mysql/conf.d/my.cnf:ro
             - ./etc/sql:/docker-entrypoint-initdb.d
         networks:
             - bridge

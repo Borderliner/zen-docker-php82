@@ -1,6 +1,6 @@
 {
     "dockerComposeFile": [
-        "../docker-compose.yml"
+        "../../docker-compose.yml"
     ],
     "service": "php",
     "workspaceFolder": "/app"
