@@ -63,4 +63,4 @@ RUN curl https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.ta
 
 WORKDIR /app
 RUN usermod -u 1000 www-data
-RUN chmod 777 /app
+# RUN chmod 777 /app # Try removing this if you have permission issues, but I don't really recommend it.
