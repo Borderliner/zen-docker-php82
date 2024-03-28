@@ -1,4 +1,5 @@
 CREATE USER IF NOT EXISTS 'admin'@'%' IDENTIFIED BY 'admin';
+CREATE USER IF NOT EXISTS 'admin'@'localhost' IDENTIFIED BY 'admin';
 
 GRANT ALL PRIVILEGES ON *.* to 'admin'@'%' IDENTIFIED BY 'admin' WITH GRANT OPTION;
 GRANT ALL PRIVILEGES ON *.* to 'admin'@'localhost' IDENTIFIED BY 'admin' WITH GRANT OPTION;
