@@ -64,5 +64,8 @@ ARG NODE_VERSION=20.12.0
 RUN curl https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz | tar -xz -C /usr/local --strip-components 1
 
 WORKDIR /app
-RUN usermod -u 1000 www-data
-# RUN chmod 777 /app # Try removing this if you have permission issues, but I don't really recommend it.
+
+RUN usermod -u 1000 www-data && chown -R $USER:www-data storage && chown -R $USER:www-data bootstrap/cache && chmod -R 775 storage && chmod -R 775 bootstrap/cache
+
+RUN composer install
+RUN npm install
