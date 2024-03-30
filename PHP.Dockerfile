@@ -66,8 +66,8 @@ RUN curl https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.ta
 WORKDIR /app
 
 RUN usermod -u 1000 www-data
+
 ### Laravel ###
 # RUN chown -R $USER:www-data storage && chown -R $USER:www-data bootstrap/cache && chmod -R 775 storage && chmod -R 775 bootstrap/cache
-
-RUN composer install
-RUN npm install
+# RUN composer install
+# RUN npm install
