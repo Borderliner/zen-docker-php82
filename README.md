@@ -1,10 +1,12 @@
 ## ☯ Zen Docker **dev-only** stack with PHP 8.2 (inc. composer & nodejs), Nginx, Redis, Adminer
 
 ### Usage
-Enter `docker-compose up` inside this directory to setup your docker containers and start the main PHP container. Everything inside `www` folder will be the root of nginx.
+Enter `docker-compose up` inside this directory to setup your docker containers and start the main PHP container. Everything inside `www` folder will be the root of nginx. By default, files will be served from `www/app/public`.
 
 ### Config
-Change `etc/nginx.conf` value of `root` to the root public folder you want. App will be served from here (typically called `public` folder in frameworks like Laravel)
+- Change `etc/nginx/nginx.conf` value of `root` to the root public folder you want. App will be served from here (typically called `public` folder in frameworks like Laravel)
+- Set Nodejs version in PHP.Dockerfile to have the latest node
+- Take a look at `.env` file and change whatever you want
 
 ### Paths
 Nginx URL: <a href="http://localhost/" target="_blank">http://localhost/</a>
