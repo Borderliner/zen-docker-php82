@@ -7,6 +7,7 @@ RUN apt-get update && apt-get install -y \
     gnupg2 \
     procps \
     curl \
+    wget \
     zip \
     unzip \
     libzip-dev \
@@ -58,11 +59,16 @@ RUN install-php-extensions \
     xdebug-3.3.1 \
     @composer
 
-# Install ioncube separately because it causes problems sometimes so we have a checkpoint here
-RUN install-php-extensions ioncube
+#### IonCube Automatic Install
+# RUN install-php-extensions ioncube
+#### IonCube Manual Install
+# RUN mkdir /shared; echo "export PHP_EXT_DIR=`php-config --extension-dir`" >> /shared/env
+# ADD ioncube_loader_lin_8.2.so /shared/ioncube_loader_lin_8.2.so
+# RUN . /shared/env; cp /shared/ioncube_loader_lin_8.2.so $PHP_EXT_DIR
+#### IonCube is by default shared in /shared
 
 # Install NodeJS
-ARG NODE_VERSION=20.12.0
+ARG NODE_VERSION=20.15.1
 RUN curl https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz | tar -xz -C /usr/local --strip-components 1
 
 WORKDIR /app

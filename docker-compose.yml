@@ -21,7 +21,8 @@ services:
             - "5173:5173"
         volumes:
             - ./www/${DOCKER_APP_NAME}:/app
-            - ./etc/php.conf:/usr/local/etc/php/conf.d/uploads.ini
+            - ./etc/php:/usr/local/etc/php/conf.d/
+            - ./shared:/shared
         working_dir: /app
         depends_on:
             - mariadb
@@ -41,7 +42,7 @@ services:
         networks:
             - bridge
         volumes:
-            - ./etc/nginx.conf:/etc/nginx/conf.d/default.conf
+            - ./etc/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
             - ./www/${DOCKER_APP_NAME}:/app
         environment:
             - DOCKER_APP_NAME=${DOCKER_APP_NAME}
@@ -56,8 +57,8 @@ services:
             - "3306:3306"
         volumes:
             - db_data:/var/lib/mysql
-            - ./etc/mysql.conf:/etc/mysql/conf.d/my.cnf:ro
-            - ./etc/sql:/docker-entrypoint-initdb.d
+            - ./etc/mysql/mysql.conf:/etc/mysql/conf.d/my.cnf:ro
+            - ./etc/mysql/init:/docker-entrypoint-initdb.d
         networks:
             - bridge
 
