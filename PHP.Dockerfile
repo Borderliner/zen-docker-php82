@@ -68,10 +68,10 @@ RUN install-php-extensions \
 #### IonCube is by default shared in /shared
 
 # Install NodeJS
-ARG NODE_VERSION=20.15.1
-ARG NODE_FILENAME=node-v$NODE_VERSION-linux-x64.tar.gz
-ARG NODE_URL=https://nodejs.org/dist/v$NODE_VERSION/$NODE_FILENAME
-RUN curl NODE_URL | tar -xz -C /usr/local --strip-components 1
+ARG NODE_VERSION=v20.15.1
+ARG NODE_FILENAME=node-$NODE_VERSION-linux-x64.tar.gz
+ARG NODE_URL=https://nodejs.org/dist/$NODE_VERSION/$NODE_FILENAME
+RUN curl $NODE_URL | tar -xz -C /usr/local --strip-components 1
 
 # Cleanup
 RUN rm -f NODE_FILENAME
