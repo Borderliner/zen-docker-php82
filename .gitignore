@@ -1,4 +1,2 @@
-*
-!www/.devcontainer
-!shared
-!etc/*
+/www/*
+!/www/.devcontainer
