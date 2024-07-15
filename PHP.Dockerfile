@@ -69,7 +69,13 @@ RUN install-php-extensions \
 
 # Install NodeJS
 ARG NODE_VERSION=20.15.1
-RUN curl https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz | tar -xz -C /usr/local --strip-components 1
+ARG NODE_FILENAME=node-v$NODE_VERSION-linux-x64.tar.gz
+ARG NODE_URL=https://nodejs.org/dist/v$NODE_VERSION/$NODE_FILENAME
+RUN curl NODE_URL | tar -xz -C /usr/local --strip-components 1
+
+# Cleanup
+RUN rm -f NODE_FILENAME
+RUN apt-get autopurge && apt-get clean
 
 WORKDIR /app
 
