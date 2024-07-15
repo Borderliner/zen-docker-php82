@@ -4,7 +4,7 @@
 This repo provides you a working development setup for your custom PHP docker image. You can tweak it as you like. There are other pre-made solutions you can try:
 - [DDEV](https://ddev.com/)
 - [Lando](https://docs.lando.dev/plugins/php)
-- [Devilbox](http://devilbox.org/)(Outdated)
+- [Devilbox](http://devilbox.org/) (Outdated)
 
 ### Usage
 - Use `docker-compose up` inside this directory to setup your docker containers and start the main PHP container. Everything inside `www` folder will be the root of nginx. By default, files will be served from `www/app/public`.
@@ -20,7 +20,7 @@ This repo provides you a working development setup for your custom PHP docker im
 ### Paths
 Nginx URL: <a href="http://localhost/" target="_blank">http://localhost/</a>
 
-Adminer URL: Nginx URL: <a href="http://localhost:8080/" target="_blank">http://localhost:8080/</a>
+Adminer URL: <a href="http://localhost:8080/" target="_blank">http://localhost:8080/</a>
 
 ### Ports Used
 - 80   (nginx)
